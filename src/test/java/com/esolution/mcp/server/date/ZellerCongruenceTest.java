@@ -1,3 +1,19 @@
+/**
+* ----------------------------------------------------------------------------  
+* THE BEER-WARE LICENSE" (Revision 42):  
+* <phk@FreeBSD.ORG> wrote this file. As long as you retain this notice you  
+* can do whatever you want with this stuff. If we meet some day, and you think  
+* this stuff is worth it, you can buy me a beer in return 
+* ----------------------------------------------------------------------------
+* 
+* 
+* Author: Pascal Bannerot 
+* pascal.bannerot@gmail.com
+* -----
+* Last Modified: Friday, 1st May 2026 11:36:10 am
+* Modified By: Pascal Bannerot
+* -----
+*/
 package com.esolution.mcp.server.date;
 
 import org.junit.jupiter.api.Test;
