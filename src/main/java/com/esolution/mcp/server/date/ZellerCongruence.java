@@ -10,7 +10,7 @@
 * Author: Pascal Bannerot 
 * pascal.bannerot@gmail.com
 * -----
-* Last Modified: Friday, 1st May 2026 11:36:10 am
+* Last Modified: Friday, 1st May 2026 5:03:29 pm
 * Modified By: Pascal Bannerot
 * -----
 */
@@ -19,9 +19,12 @@ package com.esolution.mcp.server.date;
 
 import java.time.DateTimeException;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.function.IntUnaryOperator;
 
 import io.quarkiverse.mcp.server.Tool;
+import io.quarkiverse.mcp.server.ToolArg;
+import io.quarkus.logging.Log;
 
 public class ZellerCongruence {
     public enum Day {
@@ -48,10 +51,14 @@ public class ZellerCongruence {
     private static final Day[] DAYS = Day.values();
 
     @Tool(description = "Calculate the day of the week for a given date using Zeller's Congruence algorithm.")
-    public String getDayOfWeek(int day, int month, int year) {
+    public String getDayOfWeek(@ToolArg(description = "The day of the month", name = "day") int day,
+            @ToolArg(description = "The month", name = "month") int month,
+            @ToolArg(description = "The year", name = "year") int year) {
 
         try {
-            LocalDate.of(year, month, day);
+            LocalDate ld = LocalDate.of(year, month, day);
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+            Log.infof("Date: %s", ld.format(formatter));
         } catch (DateTimeException e) {
             return "Invalid date parameters:";
         }
